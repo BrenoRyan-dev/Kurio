@@ -1,0 +1,24 @@
+@import '@fontsource/roboto-mono/400.css';
+@import '@fontsource/roboto-mono/500.css';
+@import '@fontsource/roboto-mono/700.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { background: #140d0a; }
+  body { @apply bg-bg font-mono text-cream antialiased; margin: 0; overflow-x: hidden; }
+  :focus-visible { outline: 2px solid #f4c48f; outline-offset: 2px; }
+}
+@layer components {
+  .field { @apply h-12 w-full border border-line bg-bg px-3 text-cream placeholder:text-tan/70 focus:border-accent; }
+  .label { @apply mb-2 block text-sm; }
+  .err { @apply mt-1 text-sm text-danger; }
+  .card { @apply bg-surface; }
+  .shimmer { position: relative; overflow: hidden; background: #2a1c16; }
+  .shimmer::after { content: ''; position: absolute; inset: 0; transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, #ffffff14, transparent); animation: shimmer 1.4s infinite; }
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .shimmer::after { animation: none; } * { scroll-behavior: auto !important; } }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
